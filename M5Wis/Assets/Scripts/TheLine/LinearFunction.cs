@@ -33,7 +33,7 @@ public class LinearFunction
         float intersection_x = (m.intercept-this.intercept)/(this.slope - m.slope); 
         float interesection_y = this.slope * intersection_x + this.intercept;
         interectionPoint.x = intersection_x;
-        interesection_y.y = interesection_y;
+        interectionPoint.y = interesection_y;
         return interectionPoint;
     }
 }
