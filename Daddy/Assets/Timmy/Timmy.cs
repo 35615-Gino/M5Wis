@@ -19,14 +19,12 @@ public class Timmy : MonoBehaviour
 
     float ymin;
 
-    // Start is called before the first frame update
     void Start()
     {
         ymin = transform.position.y;
         jumpHeight = new QuadraticFunction(-gravity / 2, beginSpeed, 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         tmax = -2 * beginSpeed / gravity;
