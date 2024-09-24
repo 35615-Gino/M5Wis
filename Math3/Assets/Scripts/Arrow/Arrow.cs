@@ -5,10 +5,11 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     Mesh mesh;
-    public Vector3 myVector = new Vector3(3,4,0);
+    public Vector3 myVector = new Vector3(3, 4, 0);
     float angle = 0;
- 
-    private void Start()
+
+
+    void Start()
     {
         mesh = new Mesh();
         MeshFilter meshFilter = GetComponent<MeshFilter>();
@@ -20,24 +21,29 @@ public class Arrow : MonoBehaviour
         {
             Debug.LogError("MeshFilter component missing.");
         }
+
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        angle = Mathf.Atan2(myVector.y,myVector.x) * Mathf.Rad2Deg;
-        this.transform.rotation = Quaternion.Euler(0,0,angle);
-        
+        angle = Mathf.Atan2(myVector.y, myVector.x) * Mathf.Rad2Deg;
+        this.transform.rotation = Quaternion.Euler(0, 0, angle);
         mesh.Clear();
-        UpdateMesh();
+        updateMesh();
+
+
     }
 
-    void UpdateMesh()
+    void updateMesh()
     {
-        float arrowHeight =.5f;
-        float headHeight = 1f;
-        float headWidth =0.8f;
-        float arrowWidth = Mathf.Max(0,myVector.magnitude - headWidth) ;
         
+        float arrowHeight = .3f;
+        float headHeight = 0.8f;
+        float headWidth = 0.7f;
+        float arrowWidth = Mathf.Max(0, myVector.magnitude - headWidth); // Ensure non-negative value
+        //print(arrowWidth);
+
         mesh.vertices = new Vector3[]
         {
             new Vector3 (0,arrowHeight,0),

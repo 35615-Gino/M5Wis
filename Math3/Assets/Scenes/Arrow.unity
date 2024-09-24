@@ -181,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763451565337468278, guid: e539c27e0643ba04cb88a4719adefa46, type: 3}
       propertyPath: myVector.x
-      value: 3
+      value: 5.23
       objectReference: {fileID: 0}
     - target: {fileID: 7763451565337468278, guid: e539c27e0643ba04cb88a4719adefa46, type: 3}
       propertyPath: myVector.y
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 2030231647}
   - component: {fileID: 2030231648}
   m_Layer: 0
-  m_Name: b
+  m_Name: B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 2121815608}
   - component: {fileID: 2121815609}
   m_Layer: 0
-  m_Name: a
+  m_Name: A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

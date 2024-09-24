@@ -5,16 +5,15 @@ using UnityEngine;
 
 public class FromAtoB : MonoBehaviour
 {
-    [SerializeField] private GameObject A;
-    [SerializeField] private GameObject B;
-    [SerializeField] private Arrow arrow;
-    private Vector3 velocity = new Vector3(0,0,0);
-    private float speed = 2;
-    private float distance;
-    private float tMax, t=0;
+    [SerializeField] GameObject A;
+    [SerializeField] GameObject B;
+    [SerializeField] Arrow arrow;
 
-    
-    // Start is called before the first frame update
+    Vector3 velocity;
+    float speed = 2;
+    float distance = 0;
+    float tmax, t = 0;
+
     void Start()
     {
         arrow.transform.position = A.transform.position;
@@ -23,15 +22,18 @@ public class FromAtoB : MonoBehaviour
         velocity = velocity.normalized;
         velocity = velocity * speed;
         arrow.myVector = velocity;
-        tMax = distance / speed;
+
+        tmax = distance / speed;
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        if (t <= tMax)
+        if (t <= tmax ) 
         {
             arrow.transform.position += velocity * Time.deltaTime;
             t += Time.deltaTime;
         }
+        
     }
 }
