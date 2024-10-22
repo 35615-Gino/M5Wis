@@ -8,6 +8,8 @@ public class LineCollision : MonoBehaviour
     [SerializeField] private Transform A, B;
     [SerializeField] private LineRenderer AB;
     [SerializeField] private Arrow normal;
+    [SerializeField] private Arrow tangent;
+
     LinearFunction f = new LinearFunction(1,1);
     Vector2 min, max;
 
@@ -32,6 +34,17 @@ public class LineCollision : MonoBehaviour
         normal.transform.position = new Vector3(x_avg,y_avg,0);
         normal.myVector = new Vector3(-1, 1/f.slope,0);
         normal.myVector.Normalize();
+        
+        normal.myVector = normal.myVector * Vector3.Dot(normal.myVector, ball.velocity);
+        tangent.transform.position = normal.transform.position;
+        tangent.myVector = ball.velocity - normal.myVector;
+
+        if (ball.transform.position.y < ball.transform.position.x * f.slope + f.intercept)
+        {
+            normal.myVector = -normal.myVector;
+            ball.velocity = normal.myVector + tangent.myVector;
+
+        }
         
         if (ball.transform.position.y >= max.y || ball.transform.position.y <= min.y)
         {
