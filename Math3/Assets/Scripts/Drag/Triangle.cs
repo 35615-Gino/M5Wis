@@ -19,7 +19,7 @@ public class Triangle : MonoBehaviour
     {
         AB.SetPosition(0, A.position);
         AB.SetPosition(1, B.position);
-        AB.SetPosition(0, new Vector3(0, ab.GetY(0), 0));
+        AB.SetPosition(0, new Vector3(0, ab.GetY(-10), 0));
         AB.SetPosition(1, new Vector3(0, ab.GetY(10), 0));
     }
 }

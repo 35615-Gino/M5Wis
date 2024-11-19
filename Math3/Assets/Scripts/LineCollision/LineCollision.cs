@@ -43,7 +43,6 @@ public class LineCollision : MonoBehaviour
         {
             normal.myVector = -normal.myVector;
             ball.velocity = normal.myVector + tangent.myVector;
-
         }
         
         if (ball.transform.position.y >= max.y || ball.transform.position.y <= min.y)
@@ -54,5 +53,14 @@ public class LineCollision : MonoBehaviour
         {
             ball.velocity = new Vector3(-ball.velocity.x, ball.velocity.y, 0);
         }
+        
     }
+
+
+    IEnumerator balls()
+    {
+        yield return new WaitForSeconds(2);
+        Instantiate(ball);
+    }
+    
 }
